@@ -1,9 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Platform, Text, View, StyleSheet } from "react-native";
-
+import React, { useCallback, useEffect, useState } from "react";
+import {
+  Platform,
+  Text,
+  View,
+  StyleSheet,
+  Alert,
+  TouchableOpacity,
+} from "react-native";
 import Purchases, {
   LOG_LEVEL,
   PurchasesOffering,
+  PurchasesPackage,
 } from "react-native-purchases";
 
 const APIKeys = {
@@ -32,6 +39,22 @@ export default function App() {
     setup().catch(console.log);
   }, []);
 
+  const purchaseItem = useCallback(async (purPackage: PurchasesPackage) => {
+    try {
+      const { customerInfo } = await Purchases.purchasePackage(purPackage);
+      if (
+        typeof customerInfo.entitlements.active["my_entitlement_identifier"] !==
+        "undefined"
+      ) {
+        // Unlock that great "pro" content
+      }
+    } catch (e: any) {
+      if (!e.userCancelled) {
+        Alert.alert("Error", e.message);
+      }
+    }
+  }, []);
+
   if (!currentOffering) {
     return "Loading...";
   } else {
@@ -44,7 +67,12 @@ export default function App() {
         <View style={{ marginTop: 10 }}>
           {currentOffering.availablePackages.map((pkg) => {
             return (
-              <Text style={{ marginTop: 10 }}>{pkg.product.identifier}</Text>
+              <TouchableOpacity
+                key={pkg.product.identifier}
+                onPress={() => purchaseItem(pkg)}
+              >
+                <Text style={{ marginTop: 10 }}>{pkg.product.identifier}</Text>
+              </TouchableOpacity>
             );
           })}
         </View>

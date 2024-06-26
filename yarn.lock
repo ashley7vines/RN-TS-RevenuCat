@@ -1589,6 +1589,11 @@
     invariant "^2.2.4"
     nullthrows "^1.1.1"
 
+"@revenuecat/purchases-typescript-internal@10.9.0":
+  version "10.9.0"
+  resolved "https://registry.yarnpkg.com/@revenuecat/purchases-typescript-internal/-/purchases-typescript-internal-10.9.0.tgz#3a41de0c426525d4b923353bae0f072e9f0c1e24"
+  integrity sha512-cHODQiU/3s1d0/+Weuwt3zsGhF7e7zVWYfog0A/FAt4OkKqX2YRY1VDlTq6eA0FE1nif3/xwrhvfQVlMvUKe3g==
+
 "@rnx-kit/chromium-edge-launcher@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@rnx-kit/chromium-edge-launcher/-/chromium-edge-launcher-1.0.0.tgz#c0df8ea00a902c7a417cd9655aab06de398b939c"
@@ -5255,6 +5260,13 @@ react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
+
+react-native-purchases@^7.27.4:
+  version "7.27.4"
+  resolved "https://registry.yarnpkg.com/react-native-purchases/-/react-native-purchases-7.27.4.tgz#e16c42bf0fae12846031f4e09749c0bca4d0e33d"
+  integrity sha512-EEMO+ltPVPrRe+v/VkdvDZ9TFJ2Wz4+KYJcPggyEPhlh3Ld+bkNfrtbiri/Hczu0PI76DzggON9xAcnv3OCPHw==
+  dependencies:
+    "@revenuecat/purchases-typescript-internal" "10.9.0"
 
 react-native@0.74.2:
   version "0.74.2"
